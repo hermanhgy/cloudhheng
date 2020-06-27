@@ -1,0 +1,195 @@
+{% extends "student_layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h1>
+        <b> SEARCH FOR LESSONS </b>
+    </h1>
+    <hr>
+    
+    <p>
+        Use this page to search for lessons. The page displays all results of classes. 
+        Once you register your subjects of interest in "Profile" tab, 
+        you may also apply the filter below to narrow down your search related to your interested subject areas.
+        Click the "View Teacher" button to get the details of teachers. 
+        Click the enroll button to sign up for a class.
+    </p>
+    
+    <form action="/search" method="post">
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label> Type: </label>
+                <select class="form-control" name="type">
+                    <option disabled="" selected="" value="">Select a type of subjects</option>
+                    <option value= "All" selected>All</option>
+                        {% for item in typelist %}
+                            <option value= "{{ item }}">{{ item }}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-6 form-group">
+                <label> Subject: </label>
+                <select class="form-control" name="subject">
+                    <option disabled="" selected="" value="">Select a subject</option>
+                    <option value= "All" selected>All</option>
+                        {% for row in subjects %}
+                            <option value= "{{ row['name'] }}" >{{ row['name'] }}</option>
+                        {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2 form-group">
+                <label style="color: white;">  : </label>
+                <button class="btn btn-primary btn-block" type="submit">Filter</button>
+            </div>
+        </div>
+    </form>
+   
+    <br>
+
+    {% if count_search == 0 %}
+    <p>
+        There is currently no class available based on your search.  
+        It could be either: 
+        <ul>
+            <li> You have already signed up for the class. </li>
+            <li> No teacher is currently offering this class. </li> 
+        </ul>
+    </p>
+    <p>
+        <b>Total of 0 record found based on 
+            Type: <span style="color: blue;">{{ filter["type"] }}</span> and 
+            Subject: <span style="color: blue;">{{ filter["subject"] }}</span></b> 
+    </p>
+    {% else %}
+    <p>
+        <b>Total of {{ count_search }} records found based on 
+            Type: <span style="color: blue;">{{ filter["type"] }}</span> and 
+            Subject: <span style="color: blue;">{{ filter["subject"] }}</span></b> 
+    </p>
+    {% for i in range (0, count_search) %}
+    <div class="card">
+        <h5 class="card-header">{{ search[i]["name"] }}
+            <span style="float: right;"><b>Teacher:</b> {{ search[i]['teacher_name'] }} </span></h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+                <h6 class="card-title">
+                    <table>
+                        <tr>
+                            <td><b>Date</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["date"] }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Day</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["day"] }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Time</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["time"] }} </td>
+                        </tr>
+                        <tr>
+                            <td><b>Duration</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["duration_hour"] }} hour(s) and {{ search[i]["duration_min"] }} min(s) </td>
+                        </tr>
+                    </table>
+                </h6>
+                </div>
+                <div class="col-md-7">
+                <h6 class="card-title">
+                    <table>
+                        <tr>
+                            <td><b>Type</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["type"] }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Subject</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["subject"] }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Level</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["level"] }} </td>
+                        </tr>
+                        <tr>
+                            <td><b>Total Enrollment</b> &nbsp; &nbsp; </td>
+                            <td>: </td>
+                            <td>&nbsp; &nbsp; {{ search[i]["count_student"] }} </td>
+                        </tr>
+                    </table>
+                </h6>
+                </div>
+            </div>
+            <div class="card-text">
+                <b>Details</b>: {{ search[i]["message"]}}</p>   
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <button class="btn btn-info btn-block" type="button" data-toggle="collapse" 
+                    data-target="#collapseExample{{ search[i]['id'] }}" aria-expanded="false" aria-controls="collapseExample">
+                        View Teacher
+                    </button>
+                </div>
+                <div class="col-md-2">
+                    <form action="/enroll_confirm" method="POST">
+                        <input type="hidden" name="name" value="{{ search[i]['name'] }}">
+                        <input type="hidden" name="day" value="{{ search[i]['day'] }}">
+                        <input type="hidden" name="date" value="{{ search[i]['date'] }}">
+                        <input type="hidden" name="time" value="{{ search[i]['time'] }}">
+                        <input type="hidden" name="duration_hour" value="{{ search[i]['duration_hour'] }}">
+                        <input type="hidden" name="duration_min" value="{{ search[i]['duration_min'] }}">
+                        <input type="hidden" name="type" value="{{ search[i]['type'] }}">
+                        <input type="hidden" name="subject" value="{{ search[i]['subject'] }}">
+                        <input type="hidden" name="level" value="{{ search[i]['level'] }}">
+                        <input type="hidden" name="message" value="{{ search[i]['message'] }}">
+                        <input type="hidden" name="teacher_name" value="{{ search[i]['teacher_name'] }}">
+                        <input type="hidden" name="teacher_id" value="{{ search[i]['teacher_id'] }}">
+                        <button type="submit" class="btn btn-success btn-block">Enroll</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="collapse" id="collapseExample{{ search[i]['id'] }}">
+                        <div class="card card-body">
+                            <table>
+                                <tr>
+                                    <td><b>Teacher</b></td>
+                                    <td>: </td>
+                                    <td>{{ search[i]['teacher_name'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Skype ID</b></td>
+                                    <td>: </td>
+                                    <td>{{ search[i]['teacher_skype_id'] }}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Occupation</b></td>
+                                    <td>: </td>
+                                    <td>{{ search[i]['teacher_occupation'] }} </td>
+                                </tr>
+                                <tr>
+                                    <td><b>Organization</b></td>
+                                    <td>: </td>
+                                    <td>{{ search[i]['teacher_organization'] }} </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+    {% endif %}
+
+{% endblock %}

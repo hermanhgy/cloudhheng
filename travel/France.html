@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link href="../icon/cloud.png" rel="icon">       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css">
+        <link rel="stylesheet" href="../styles.css">
+    
+        <script src="../javascript.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+       
+        <div id="content1"></div>
+        <script> 
+            $(document).ready(function() {
+            $('#content1').load("layout.html #title");
+            });
+        </script> 
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+        <div class="row">        
+        <aside class="col-md left">
+            <div id="content2"></div>
+            <script> 
+                $(document).ready(function() {
+                $('#content2').load("layout.html");
+                });
+            </script> 
+        </aside>
+
+        <main class="col-md right">
+            
+            <h1>
+                My Trip to France <i class="flag-icon flag-icon-fr"></i>
+            </h1>
+            <hr>
+            <h6>
+                Visited in: Sep 2019
+            </h6> 
+
+            <p>
+               This is a simple excursion trip after I completed my research exchange program in <a href="../travel/England.html">England</a>. I took a train from London to Paris, which travelled under the English Channel. During this trip, I was fortunate to be hosted by Oussama, a young engineer originally from Lebanon and studying finance in Paris. He also has knowledge in other fields such as stock trading and photography. I was glad to stay with him for a week to learn more about middle eastern culture and also some knowledge in photography. With his guidance, I also managed to travel to a lot of local attractions in Paris, and thanks him for taking some nice photos taken with his professional camera.  
+            </p>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="../travel/image/france2.jpg" width=100%>
+                        <label>The Eiffel Tower in Paris <br> (photo credit: Oussama Hamdache)</label>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../travel/image/france3.jpg" width=100%>
+                        <label>Sacr&#233;-Cœur in Paris <br> (photo credit: Oussama Hamdache)</label>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../travel/image/france6.jpg" width=100%>
+                        <label>Going on a river cruise with Oussama on the Seine River</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../travel/image/france1.jpg" width=100%>
+                        <label>Musee du Louvre in Paris (photo credit: Oussama Hamdache) </label>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../travel/image/france4.jpg" width=100%>
+                        <label>Meal sharing with my host Oussama Hamdache during my stay</label>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                Another thing that surprised me during this trip was an old friend of mine, Victor Tee, coincidentally visited Paris at the same time while I was visiting. He is a friend whom I met at the Church of the Holy Family and have not met for years after he went to China to pursue his Master's Degree. This Paris trip was then also become a precious reunion time with him - travelling has never stopped surprising me.   
+            </p>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="../travel/image/france5.jpg" width=100%>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../travel/image/france7.jpg" width=100%>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../travel/image/france8.jpg" width=100%>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <label>Reunion with Victor near the Eiffel Tower and a local French restaurant</label>
+                    </div>
+                </div>
+            </div>
+
+            <p class="enter"></p>
+
+        </main>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,129 @@
+{% extends "teacher_layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1>
+        <b> MY CLASS HISTORY </b>
+    </h1>
+    <hr>
+
+    {% if count_validate == 0 %}
+    <p>
+        You currently have no class to validate. 
+    </p>
+    {% else %}
+    <div class="alert alert-warning" role="alert">
+        <b>You have {{ count_validate }} lesson(s) waiting for validation.</b> 
+    </div>
+    {% for i in range (0, count_validate) %}
+    <form action="/validate_confirm" method="POST">
+    <div class="card">
+        <h5 class="card-header"> {{ validate[i]["name"] }}
+            <span style="float: right;"> <b>Expected Enrollment:</b> {{ count[i] }}</span>
+        </h5>
+        <div class="card-body">
+            <h6 class="card-title">
+                <b>Date: </b> {{ validate[i]["date"] }} &emsp;
+                <b>Time: </b> {{ validate[i]["time"] }} &emsp;
+                <b>Duration: </b> {{ validate[i]["duration_hour"] }} hour(s) and {{ validate[i]["duration_min"] }} min(s) &emsp; 
+                <b>Day: </b> {{ validate[i]["day"] }} &emsp; 
+            </h6>
+            <h6 class="card-title">
+                <b>Type: </b> {{ validate[i]["type"] }} &emsp;
+                <b>Subject: </b> {{ validate[i]["subject"] }} &emsp;
+                <b>Level: </b> {{ validate[i]["level"] }} &emsp; 
+            </h6>
+            <hr>
+            <div>
+                <label> Please validate if below students attend the class: </label> <br>
+                {% for row in students[i] %}
+                    <div class="form-check form-check-inline">
+                        <input name="students" class="form-check-input" 
+                        type="checkbox" id="inlineCheckbox1" value="{{ row['name'] }}"> 
+                        <label class="form-check-label" for="inlineCheckbox1"> {{ row["name"] }} </label>
+                    </div> &emsp; &emsp; 
+                {% endfor %} 
+            </div>
+
+            <div>
+                <input type="hidden" name="validate_id" value="{{ validate[i]['id'] }}">
+                <input type="hidden" name="teacher_id" value="{{ validate[i]['teacher_id'] }}">
+                <input type="hidden" name="date" value="{{ validate[i]['date'] }}">
+                <input type="hidden" name="day" value="{{ validate[i]['day'] }}">
+                <input type="hidden" name="time" value="{{ validate[i]['time'] }}">
+                <input type="hidden" name="duration_hour" value="{{ validate[i]['duration_hour'] }}">
+                <input type="hidden" name="duration_min" value="{{ validate[i]['duration_min'] }}">
+                <input type="hidden" name="type" value="{{ validate[i]['type'] }}">
+                <input type="hidden" name="subject" value="{{ validate[i]['subject'] }}">
+                <input type="hidden" name="name" value="{{ validate[i]['name'] }}">
+                <input type="hidden" name="level" value="{{ validate[i]['level'] }}">
+                <input type="hidden" name="message" value="{{ validate[i]['message'] }}">
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="float-right">
+                        <button type="submit" name="submit_button" value="yes" class="btn btn-success">
+                            Validate</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="float-right">
+                        <button type="submit" name="submit_button" value="no" class="btn btn-danger">
+                            This class didn't take place</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <br>    
+    {% endfor %}
+    {% endif %}
+
+    <br>
+    <p>
+        Your past lesson records are displayed as below. 
+    </p>
+    {% if count_history == 0 %}
+    <p>
+        You currently do not have any past lessons. 
+    </p>
+    {% else %}
+        <div class="alert alert-primary" role="alert">
+            <strong>
+                You have volunteered in teaching for total of {{ "{:.1f}".format(total_hour) }} hours and taught {{total_student}} students :)
+            </strong>
+        </div>
+        <br>
+        <table class="TFtable">
+            <tr>
+                <th>No.</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Hours</th>  
+                <th>Subject</th>
+                <th>Name</th>
+                <th>Enrollment</th>
+            </tr>
+            {% for row in history %}
+            <tr>
+                <td class="counterCell"></td>
+                <td>{{ row["date"] }}</td>
+                <td>{{ row["time"] }}</td>
+                <td>{{ "{:.1f}".format(row["duration"]) }}</td>
+                <td>{{ row["subject"] }}</td>
+                <td>{{ row["name"] }}</td>
+                <td>{{ row["enrollment"] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <b>Total of {{ count_history }} records found </b> 
+    {% endif %}
+{% endblock %}
+
+

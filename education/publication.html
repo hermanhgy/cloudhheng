@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link href="../icon/cloud.png" rel="icon">       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css">
+        <link rel="stylesheet" href="../styles.css">
+    
+        <script src="../javascript.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+       
+        <div id="content1"></div>
+        <script> 
+            $(document).ready(function() {
+            $('#content1').load("layout.html #title");
+            });
+        </script> 
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+        <div class="row">        
+        <aside class="col-md left">
+            <div id="content2"></div>
+            <script> 
+                $(document).ready(function() {
+                $('#content2').load("layout.html");
+                });
+            </script> 
+        </aside>
+
+        <main class="col-md right">
+            <h1>
+                Publications and Conferences
+            </h1>
+            <hr>
+            <h3>
+                My Publications
+            </h3>
+            <p>
+                <ul>   
+                    <li>A. Beitel, H. Heng, and D. Sumner (2019). <a href="https://www.sciencedirect.com/science/article/pii/S0167610518306093">The effect of aspect ratio on the aerodynamic forces and bending moment for a surface-mounted finite-height cylinder</a>. Journal of Wind Engineering and Industrial Aerodynamics, 186, 204-213.</li>
+                </ul>        
+            </p>
+            <h3>
+                My Conference Presentations
+            </h3>
+            <p>
+                <ul>   
+                    <li>H. Heng, and D. Sumner (2019). Effect of aspect ratio and incidence angle on the free-end mean surface
+                        pressure distribution for a finite-height square prism, Okanagan Fluid Dynamics Meeting, Canmore,
+                        Alberta, April 26-28, 2019.</li>
+                </ul>
+            </p>
+
+        </main>
+        </div>
+        </div>
+    </body>
+</html>
+
+
+

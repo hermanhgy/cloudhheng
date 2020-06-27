@@ -1,0 +1,177 @@
+{% extends "teacher_layout.html" %}
+
+{% block title %}
+    Schedule
+{% endblock %}
+
+{% block main %}
+
+    {% if validate == True %}
+    <h1>
+        <b> CONFIRMATION OF VALIDATION </b>
+    </h1>
+    <hr>
+    <p>
+        You are about to validate the class with below details and confirm the attendance for below students. 
+    </p>
+    <form action="/validate" method="POST">
+        <div>
+            <table>
+                <tr>
+                    <td><b>Name</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["name"] }}</td>
+                </tr>
+                <tr>
+                    <td><b>Subject</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["subject"] }}</td>
+                </tr>
+                <tr>
+                    <td><b>Date</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["date"] }} </td>
+                </tr>
+                <tr>
+                    <td><b>Day</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["day"] }} </td>
+                </tr>
+                <tr>
+                    <td><b>Time</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["time"] }} </td>
+                </tr>
+                <tr>
+                    <td><b>Duration:</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["duration_hour"] }} hour(s) and {{ row["duration_min"] }} min(s) </td>
+                </tr>
+            </table>
+        <br> 
+        </div>
+        <label> <b>Details: </b> <br>{{ row["message"] }} </label>
+        <br><br>
+
+        <p>
+            Are you sure you want to validate this class and confirm the attendance for below students?
+        </p>
+
+        {% for item in row["students"] %}
+            <ul>
+                <li>{{ item }}</li>
+            </ul>
+            <input type="hidden" name="students" value="{{ item }}">
+        {% endfor %}
+
+        <p>
+            There will be {{ row["count"] }} student(s) to be validated. 
+        </p>
+
+        <input type="hidden" name="validate_id" value="{{ row['validate_id'] }}">
+        <input type="hidden" name="teacher_id" value="{{ row['teacher_id'] }}">
+        <input type="hidden" name="date" value="{{ row['date'] }}">
+        <input type="hidden" name="time" value="{{ row['time'] }}">
+        <input type="hidden" name="duration_hour" value="{{ row['duration_hour'] }}">
+        <input type="hidden" name="duration_min" value="{{ row['duration_min'] }}">
+        <input type="hidden" name="type" value="{{ row['type'] }}">
+        <input type="hidden" name="subject" value="{{ row['subject'] }}">
+        <input type="hidden" name="name" value="{{ row['name'] }}">
+        <input type="hidden" name="level" value="{{ row['level'] }}">
+        <input type="hidden" name="message" value="{{ row['message'] }}">
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" name="submit_button" value="validate_yes" class="btn btn-info btn-block">
+                    Yes, validate this class!</button>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" name="submit_button" value="validate_no" class="btn btn-info btn-block">
+                    No, don't validate yet !</button>
+            </div>
+        </div>
+    </form>
+
+    {% else %}
+    <h1>
+        <b> CONFIRMATION OF VALIDATION CANCELLATION</b>
+    </h1>
+    <hr>
+    <p>
+        You indicate that below class should not be validated.
+    </p>
+    <form action="/validate" method="POST">
+        <div>
+            <table>
+                <tr>
+                    <td><b>Name</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["name"] }}</td>
+                </tr>
+                <tr>
+                    <td><b>Subject</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["subject"] }}</td>
+                </tr>
+                <tr>
+                    <td><b>Date</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["date"] }} </td>
+                </tr>
+                <tr>
+                    <td><b>Day</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["day"] }} </td>
+                </tr>
+                <tr>
+                    <td><b>Time</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["time"] }} </td>
+                </tr>
+                <tr>
+                    <td><b>Duration:</b> &nbsp; &nbsp; </td>
+                    <td>: </td>
+                    <td>&nbsp; &nbsp; {{ row["duration_hour"] }} hour(s) and {{ row["duration_min"] }} min(s) </td>
+                </tr>
+            </table>
+        <br> 
+        </div>
+        <label> <b>Details: </b> <br>{{ row["message"] }} </label>
+        <br><br>
+        <p>
+            The reason for not validating the class may be due to:
+            <ul>
+                <li> The class did not take place. </li>
+                <li> You selected no student to be validated - please make sure your students are selected for validation.</li>
+            </ul> 
+        </p>
+        <p>
+            This class will no be recorded in the history. Are you confirm NOT to validate this class?
+        </p>
+
+        <input type="hidden" name="validate_id" value="{{ row['validate_id'] }}">
+        <input type="hidden" name="teacher_id" value="{{ row['teacher_id'] }}">
+        <input type="hidden" name="date" value="{{ row['date'] }}">
+        <input type="hidden" name="time" value="{{ row['time'] }}">
+        <input type="hidden" name="duration_hour" value="{{ row['duration_hour'] }}">
+        <input type="hidden" name="duration_min" value="{{ row['duration_min'] }}">
+        <input type="hidden" name="type" value="{{ row['type'] }}">
+        <input type="hidden" name="subject" value="{{ row['subject'] }}">
+        <input type="hidden" name="name" value="{{ row['name'] }}">
+        <input type="hidden" name="level" value="{{ row['level'] }}">
+        <input type="hidden" name="message" value="{{ row['message'] }}">
+
+        <div class="row">
+            <div class="col-md-4">
+                <button type="submit" name="submit_button" value="not_validate_yes" class="btn btn-info btn-block">
+                    Yes, this class should NOT be validated. </button>
+            </div>
+            <div class="col-md-4">
+                <button type="submit" name="submit_button" value="not_validate_no" class="btn btn-info btn-block">
+                    No, I want to validate this class. </button>
+            </div>
+        </div>
+    </form>
+    {% endif %}
+    
+{% endblock %}

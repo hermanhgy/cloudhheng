@@ -1,0 +1,74 @@
+{% extends "student_layout.html" %}
+
+{% block title %}
+    Schedule
+{% endblock %}
+
+{% block main %}
+    <h1>
+        <b> CONFIRMATION OF CANCELLATION </b>
+    </h1>
+    <hr>
+    <p>
+        You indicate to cancel the class with below details. 
+    </p>
+    <div>
+        <table>
+            <tr>
+                <td><b>Name</b> &nbsp; &nbsp; </td>
+                <td>: </td>
+                <td>&nbsp; &nbsp; {{ row["name"] }}</td>
+            </tr>
+            <tr>
+                <td><b>Subject</b> &nbsp; &nbsp; </td>
+                <td>: </td>
+                <td>&nbsp; &nbsp; {{ row["subject"] }}</td>
+            </tr>
+            <tr>
+                <td><b>Date</b> &nbsp; &nbsp; </td>
+                <td>: </td>
+                <td>&nbsp; &nbsp; {{ row["date"] }} </td>
+            </tr>
+            <tr>
+                <td><b>Day</b> &nbsp; &nbsp; </td>
+                <td>: </td>
+                <td>&nbsp; &nbsp; {{ row["day"] }} </td>
+            </tr>
+            <tr>
+                <td><b>Time</b> &nbsp; &nbsp; </td>
+                <td>: </td>
+                <td>&nbsp; &nbsp; {{ row["time"] }} </td>
+            </tr>
+            <tr>
+                <td><b>Duration:</b> &nbsp; &nbsp; </td>
+                <td>: </td>
+                <td>&nbsp; &nbsp; {{ row["duration_hour"] }} hour(s) and {{ row["duration_min"] }} min(s) </td>
+            </tr>
+        </table>
+    <br> 
+    </div>
+    <label> <b>Details: </b> <br>{{ row["message"] }} </label>
+    <br><br>
+    <p>
+        Are you sure you want to cancel this class?
+    </p>
+
+    <div class="row">
+        <div class="col-md-3">
+            <form action="/cancel" method="POST">
+                <input type="hidden" name="name" value="{{ row['name'] }}">
+                <input type="hidden" name="date" value="{{ row['date'] }}">
+                <input type="hidden" name="time" value="{{ row['time'] }}">
+                <input type="hidden" name="confirm" value="yes">
+                <button type="submit" class="btn btn-info btn-block">Yes, cancel it !</button>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <form action="/cancel" method="POST">
+                <input type="hidden" name="confirm" value="no">
+                <button type="submit" class="btn btn-info btn-block">No, keep it !</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
