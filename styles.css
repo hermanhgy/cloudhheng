@@ -44,6 +44,8 @@ p, table, .paragraph{
     width: 14%;
     margin-top: 10px;
     margin-bottom: 10px;
+    border: rgb(150, 150, 150) solid;
+    border-width: 1px;
 }
 
 .social-media:hover, .social-media-home:hover{
@@ -66,7 +68,7 @@ p, table, .paragraph{
     }
 
     .small-screen-content {
-        padding: 5% 0;
+        padding: 3% 0;
         text-align: left;   
     }
 
@@ -76,6 +78,10 @@ p, table, .paragraph{
 
     [class*="col-md-"] {
         margin-bottom: 30px;
+    }
+
+    .social-media-home {
+        width: 12%;
     }
 
     .social-media {
@@ -151,15 +157,16 @@ hr{
     padding: 0px;
     margin: 0px;
     width: 100%; 
-    border: none;
+    border: white solid;
+    border-width: 0.5px;
 }
 
 .homebutton:hover{
     background-color: rgb(242, 250, 168);
     cursor: pointer;
-    border: black solid;
-    border-width: 10px;
-    border-radius: 5%;
+    border: black dotted;
+    border-width: 0.5px;
+    border-radius: 2%;
 }
 
 .accordion_butt{
@@ -248,6 +255,10 @@ hr{
 
 .enter{
     margin-bottom: 30px;
+}
+
+.enter_small{
+    margin-bottom: 15px;
 }
 
 .unclickable{
