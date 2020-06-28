@@ -54,9 +54,15 @@ p, table, .paragraph{
 
 .big-screen {
     display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 0px; 
 }
 
-.small-screen {
+.big-screen-image {
+    display: block;
+}
+
+.small-screen, .small-screen-image {
     display: none; 
 }
 
@@ -64,20 +70,16 @@ p, table, .paragraph{
 @media (max-width: 768px) {
     .small-screen {
         display: inline-block;
-        text-align: left;
+        margin-top: 0px;
+        margin-bottom: 0px; 
     }
 
-    .small-screen-content {
-        padding: 3% 0;
-        text-align: left;   
+    .small-screen-image {
+        display: block;
     }
 
-    .big-screen {
+    .big-screen, .big-screen-image {
         display: none;
-    }
-
-    [class*="col-md-"] {
-        margin-bottom: 30px;
     }
 
     .social-media-home {
@@ -86,6 +88,10 @@ p, table, .paragraph{
 
     .social-media {
         width: 8%;
+    }
+    
+    [class*="col-md-"] {
+        margin-bottom: 30px;
     }
 }
 
@@ -242,7 +248,7 @@ hr{
     font-size: 30px;
     border: none;
     outline: none;
-    background-color:rgb(0, 0, 0, 0.5);
+    background-color: black;
     color: white;
     cursor: pointer;
     padding: 5px 15px;
@@ -250,7 +256,7 @@ hr{
 }
   
 #myBtn:hover{
-    background-color:rgb(0, 0, 0, 1.0);
+    background-color: grey;
 }
 
 .enter{
