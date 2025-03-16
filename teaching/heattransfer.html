@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link href="../icon/cloud.png" rel="icon">       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css">
+        <link rel="stylesheet" href="../styles.css">
+    
+        <script src="../javascript.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+       
+        <div id="content1"></div>
+        <script> 
+            $(document).ready(function() {
+            $('#content1').load("layout.html #title");
+            });
+        </script> 
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+        <div class="row">        
+        <aside class="col-md left">
+            <div id="content2"></div>
+            <script> 
+                $(document).ready(function() {
+                $('#content2').load("layout.html");
+                });
+            </script> 
+        </aside>
+
+        <main class="col-md right">
+            
+            <h1>
+                Heat Transfer
+            </h1>
+            <hr>
+            <h6>
+                Organization: McGill University
+            </h6>
+
+            <p>
+                I had the great pleasure of working with <a href="https://www.linkedin.com/in/wael-saleh-7a63a634/?originalSubdomain=ca">Dr. Wael Saleh</a> (Concordia University) to deliver the Heat Transfer course at McGill University. I was primarily responsible for weekly tutorials, consultation hours, revision sessions before midterm and final exams, and grading exams. This was probably the largest class I have ever taught, with approximately 75 students in the Fall 2023 semester and around 130 students in the Winter 2024 semester.
+            </p>
+            <h3>
+                Radiative Heat Transfer 
+            </h3>
+            <hr>
+            <p>
+                Engineering students are familiar with the three mechanisms of heat transfer: (i) conduction, (ii) convection, and (iii) radiation. Among these, I enjoy teaching radiation the most. However, I have found that radiation is the topic students struggle with the most or are the least exposed to in heat transfer courses. One possible reason is that radiation is more closely related to physics (students need to understand some mechanisms of light), making it more abstract. I find that many mechanical engineering students can visualize conduction and convection more easily, as these processes involve tangible objects and working fluids and are more closely related to fluid mechanics.
+            </p>
+            <p>
+                At McGill University, I am fortunate to have had the opportunity to work with two experts in radiation. First, <a href="https://www.linkedin.com/in/melanie-tetreault-friend-p-eng-phd-2b7448109/">Prof. Mélanie Tétreault-Friend</a> – I took a specialized radiation course during my Ph.D. program, where I explored topics such as the radiative properties of real materials, radiation in absorbing/emitting/scattering media, numerical methods for solving radiative transfer equations (Monte Carlo ray tracing method), and real-world applications of radiation in solar collectors and concentrating solar power (CSP) technology. Second, <a href="https://profiles.faculty.utah.edu/u0715614">Prof. Mathieu Francoeur</a> – I collaborated with Prof. Francoeur at the University of Utah on various aspects of radiative heat transfer in metal-fuel combustion as part of my <a href="../education/PhD.html">Ph.D. research</a>. Prof. Francoeur is also an expert in thermophotovoltaic (TPV) cells, and through this collaboration, I have gained valuable exposure to TPV technology — an interdisciplinary collaboration that I highly appreciate.
+            </p>
+            <h3>
+                Making Learning Heat Transfer Fun! 
+            </h3>
+            <p>
+                With my background in radiation, my goal is to make this topic engaging and accessible so students can appreciate its relevance despite its abstract nature. One of my approaches is to connect radiation to observable real-world phenomena. For example, I ask my students: “How can we have a rough idea on how hot is an object by observing its colour?” This concept is explained by Wien’s Displacement Law,  a fundamental concept in heat transfer, which describes how an object’s peak wavelength shifts with temperature - hotter objects emit shorter wavelengths. The YouTube video below demonstrates this concept beautifully:
+            </p>
+
+            <div class="paragraph image">
+                <iframe width="100%" height="450" src="https://www.youtube.com/shorts/z6-UcC2im9o">
+                The video from ScienceExplainedOfficial, which visually explains Wien’s Displacement Law - note that hotter objects do not appear red, and cooler objects do not necessarily appear blue.
+                </iframe>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <img src="../teaching/image/WeinLaw.png" width="100%">
+                        Wein's Displacement Law - reproduced from <a href="  https://www.thermal-engineering.org/what-is-wiens-displacement-law-definition/">Thermal Engineering</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+
+            <p>
+                Another concept students often struggle with is solid angle in radiation. Simply put, the solid angle measures how large an object appears to an observer from a given vantage point—larger objects appear smaller when viewed from farther away. A perfect example of the solid angle concept in action is the total solar eclipse on April 8, 2024. This event, which many Montrealers were excited about, was an excellent opportunity to explain why the Moon can perfectly cover the Sun from Earth’s perspective.
+            </p>
+
+            <p>
+                Solar eclipse is fascinating not simply because it doesn’t happen every day or month. If we were able to observe a solar eclipse from Mars, we wouldn’t see a perfect alignment between Phobos (Mars’ moon) and the Sun because they have different solid angles when viewed from Mars, as shown below.
+            </p>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <img src="../teaching/image/MarsEclipse.png" width="100%">
+                        "Solar eclipse" when Phobos passes in front of the Sun when viewed from Mars - reproduced from <a href="https://photojournal.jpl.nasa.gov/catalog/PIA17356">NASA JPL-Caltech</a>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+
+            <p>
+                Why is a total solar eclipse unique to Earth? The Sun is about 400 times larger in diameter than the Moon, but it is also conincidently about 400 times farther from Earth than the Moon — which means they have almost the same solid angle when viewed from Earth. This perfect alignment allows us to see a total eclipse with a beautifully visible corona, as shown below.
+            </p>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../teaching/image/SolarEclipse.jpg" width="100%">
+                        <label>Photo taken by me: Evolution of solar eclipse in Montreal on 8 April 2024</label>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../teaching/image/Totality.jpg" width="100%">
+                        <label>Totality at 1527 hrs on 8 April 2024 in Montreal</label>
+                    </div>
+                </div>
+            </div>
+            
+            <p>
+                Even more fascinating is that the Moon is slowly moving away from Earth each year. If we had observed a solar eclipse millions of years ago—or if we do so millions of years in the future — the alignment would not be as perfect, and we would no longer see this beautiful corona. This cosmic coincidence allows us to witness the perfect eclipse phenomenon today. By connecting radiation concepts to real-world and cosmic observations, I believe it will enhance students’ appreciation for heat transfer and make engineering education more meaningful.
+            </p>
+    
+            <p class="enter"></p>
+
+        </main>
+        </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+        
+
+
+
+
+
+
+
