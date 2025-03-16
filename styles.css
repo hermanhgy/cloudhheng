@@ -213,6 +213,12 @@ hr{
     color: rgb(72, 72, 252);
 }
 
+.accordion_butt2 {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    text-align: left;
+}
+
 .accordion_cont{
     background-color: #eeeeee;
     padding: 0%;
