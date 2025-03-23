@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link href="../icon/cloud.png" rel="icon">       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css">
+        <link rel="stylesheet" href="../styles.css">
+    
+        <script src="../javascript.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+       
+        <div id="content1"></div>
+        <script> 
+            $(document).ready(function() {
+            $('#content1').load("layout.html #title");
+            });
+        </script> 
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+        <div class="row">        
+        <aside class="col-md left">
+            <div id="content2"></div>
+            <script> 
+                $(document).ready(function() {
+                $('#content2').load("layout.html");
+                });
+            </script> 
+        </aside>
+
+        <main class="col-md right">
+            <h1>
+                My Trip to Greece <i class="flag-icon flag-icon-gr"></i>
+            </h1>
+            <hr>
+            <h6>
+                Visited in: Jul 2022
+            </h6> 
+
+            <p>
+                After a long travel break due to COVID-19, I finally had the chance to travel again. This time, I went to Greece to attend the Committee on Space Research (COSPAR) conference in Athens, followed by a few days of summer vacation on Santorini Island. It was wonderful to travel once more and learn in this beautiful country that is so rich in culture, history, and warm hospitality.
+            </p>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="../travel/image/greece1.jpg" width=100% height="85%">
+                        <label>Attending a social event in the COSPAR conference</label>
+                    </div>
+                    <div class="col-md-9">
+                        <img src="../travel/image/greece2.jpg" width=100% height="85%">
+                        <label>Experiencing my first scuba dive in the Mediterranean Sea</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../travel/image/greece3.jpg" width=100%>
+                        <label>Visiting Santorini volcano and hot springs</label>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../travel/image/greece4.jpg" width=100%>
+                        <label>Watching the sunset on Santorini Island</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../travel/image/greece5.jpg" width=100%>
+                        <label>The Sunset above the Mediterranean Sea</label>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../travel/image/greece6.jpg" width=100%>
+                        <label>Ancropolis of Athens</label>
+                    </div>
+                </div>
+            </div>
+
+            <p class="enter"></p>
+        </main>
+        </div>
+        </div>
+    </body>
+</html>
